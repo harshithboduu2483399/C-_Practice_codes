@@ -1,0 +1,50 @@
+/*
+The Challenge: "The Global Tech Order"
+Write a single C# program that performs the following tasks using the specific data types required:
+String: Store the name of a product (e.g., "Ultra-Book Pro").
+Int: Store the quantity of items being ordered (e.g., 5).
+Float: Store the weight of a single item in kilograms (e.g., 1.25f).
+Long: Store a 12-digit tracking number (e.g., 987654321012).
+Decimal: Store the price of the item (e.g., 899.99m).
+Bool: Create a variable that checks if the order is "International" (set it to true or false).
+
+The Logic to Code:
+Calculate the Total Price (quantity * price).
+Calculate the Total Weight (quantity * weight).
+Apply a Shipping Fee: If isInternational is true, add $50.00 to the total price; otherwise, add $10.00.
+Print a Summary: Display all the information in a clean format.
+*/
+
+code:
+using System;
+class Program {
+    static void Main() {
+        string product = "Ultra Book Pro";
+        Console.WriteLine(product);
+
+        int quantity = 5;
+        float weight = 1.25f;
+        long trackid = 9378383891L;
+        decimal price = 89.99m;
+        bool isinternational = false;
+        Console.WriteLine($"Total Quantity: {quantity}");
+        Console.WriteLine($"Weight of each  product : {weight}KG");
+        Console.WriteLine($"Order Tracking id:  {trackid}");
+        Console.WriteLine($"Price of each product: ${price}");
+
+
+        decimal totalprice = quantity*price;
+        float totalweight = quantity*weight;
+        Console.WriteLine($"Total price before Shipping charges: ${totalprice}");
+        if (isinternational){
+            totalprice += 50.00m;
+            Console.WriteLine($"Shipping charges : $50.00");
+        }
+        else{
+            totalprice += 10.00m;
+            Console.WriteLine($"Shipping charges : $10.00");
+        }
+        Console.WriteLine($"total price after shipping costs: ${totalprice}");
+        Console.WriteLine($"total weight of the order : {totalweight}KG");
+    }
+}
