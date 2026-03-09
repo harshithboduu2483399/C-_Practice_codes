@@ -1,0 +1,63 @@
+\*
+📝 Scenario
+You are writing a script for an automated warehouse robot. The robot needs to decide if it can pick up a combined load of electronics and determine if the operation is safe and within budget.
+
+🛠 Part 1: The Variables
+Initialize the following variables in your program:
+
+int laptopCount = 10;
+int phoneCount = 20;
+decimal laptopPrice = 500.50m;
+decimal phonePrice = 200.25m;
+double laptopWeight = 2.5; // in kg\
+double phoneWeight = 0.5; // in kg
+decimal budgetLimit = 10000.00m;
+double weightLimit = 40.0;
+
+⚙️ Part 2: The Tasks
+Task 1: Arithmetic & Precedence
+Calculate the Total Value of the inventory and the Total Weight.
+Total Value: (Laptops × Price) + (Phones × Price).
+Total Weight: (Laptops × Weight) + (Phones × Weight).
+Note to students: Pay attention to how the compiler handles the order of multiplication and addition!
+
+Task 2: Assignment Operators
+The warehouse charges a flat "Processing Fee" of $150.
+Use a compound assignment operator (+=) to add this fee to your previously calculated Total Value.
+
+Task 3: Comparison & Logical Operators
+Create a boolean variable named isOperationSafe. This should be true ONLY if:
+The Total Value is less than or equal to the budgetLimit.
+AND the Total Weight is strictly less than the weightLimit.
+*/
+
+using System;
+class Program {
+    static void Main() {
+        int laptopcount = 10;
+        int phonecount = 10;
+        decimal laptopprice = 500.50m;
+        decimal phoneprice = 200.25m;
+        double laptopWeight = 2.5;
+        double phoneWeight = 0.5;
+        decimal budgetLimit = 10000.00m;
+        double weightLimit = 40.0;
+
+        decimal totalvalue = (laptopcount * laptopprice) + (phonecount * phoneprice);
+        double totalweight = (laptopcount * laptopWeight) + (phonecount * phoneWeight);
+        totalvalue += 150;
+        
+
+        bool isOperation = (totalvalue <= budgetLimit) && (totalweight < weightLimit);
+
+        if (isOperation) {
+            Console.WriteLine("-----Warehouse Report-------");
+            Console.WriteLine($"Total Value of order after processing fee : {totalvalue}"); 
+            Console.WriteLine($"Total weight of the order : {totalweight}");
+        }
+        else{
+            Console.WriteLine("Operation is out of range either total value is more than the budget limit or total weight is out of range of weight limit");
+        }
+
+    }
+}
