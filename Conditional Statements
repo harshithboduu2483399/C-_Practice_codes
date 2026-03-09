@@ -1,0 +1,78 @@
+/*
+You are coding the logic for a "Smart Toll Booth." The booth must calculate the toll price based on the Vehicle Type and the Current Time of Day (Peak vs. Off-Peak).
+
+🛠 Part 1: Initial Variables
+Provide your students with these starting values:
+string vehicleType = "Truck"; // Options: "Car", "Motorbike", "Truck", "Bus"
+int hourOfDay = 18; // Use 24-hour format (e.g., 18 = 6:00 PM)
+decimal baseToll = 0.0m;
+
+⚙️ Part 2: The Tasks
+Task 1: The switch Statement (Vehicle Categorization)
+Use a switch case (or a C# 12 switch expression) to set the baseToll based on the vehicleType:
+"Motorbike" ➔ $2.50
+"Car" ➔ $5.00
+"Bus" ➔ $10.00
+"Truck" ➔ $15.00
+Default ➔ $0.00 (Invalid Vehicle)
+
+Task 2: The if / else if Logic (Time-Based Surcharge)
+Apply a surcharge to the baseToll based on the hourOfDay:
+Peak Morning (7 to 9): Add $3.00.
+Peak Evening (16 to 19): Add $5.00.
+Night (22 to 24) OR (0 to 5): Subtract $2.00 (Discount).
+All other times: No change.
+
+Task 3: The Ternary Operator (Final Validation)
+Use a ternary operator to create a string variable called paymentStatus.
+If baseToll is greater than 0, set the status to "Ready to Pay".
+Otherwise, set it to "Void / Error".
+*/
+using System;
+class Program {
+    static void Main() {
+        string vehicleType = "Truck";
+        int hourOfDay = 18;
+        decimal baseToll = 0.0m;
+
+        switch (vehicleType)
+        {
+            case "Motorbike":
+                baseToll +=2.50m;
+                break;
+            case "Car":
+                baseToll +=5.00m;
+                break;
+            case "Bus":
+                baseToll +=10.00m;
+                break;
+            case "Truck":
+                baseToll +=15.00m;
+                break;
+            default:
+                baseToll +=0.00m;
+                break;
+        }
+
+        if (hourOfDay>=7 && hourOfDay<=9){
+            baseToll +=3.00m;
+        }
+        else if (hourOfDay>=16 && hourOfDay<=19){
+            baseToll +=5.00m;
+        }
+        else if ((hourOfDay>=22 && hourOfDay<=24) || (hourOfDay>=0 && hourOfDay<=5 )) {
+            baseToll -=2.00m;
+        }
+
+        string paymentStatus = baseToll >0 ? "Ready to pay" : "Error";
+
+
+        Console.WriteLine("----TOLL BOOTH GATE 4");
+        Console.WriteLine($"Vehicle : {vehicleType}");
+        Console.WriteLine($"Current Hour : {hourOfDay}");
+        Console.WriteLine($"Status : {paymentStatus}");
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine($"Final Toll Amount : ${baseToll}");
+
+    }
+}
