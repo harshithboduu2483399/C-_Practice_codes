@@ -1,0 +1,32 @@
+using System;
+class Program {
+    static void Main() {
+        int[] inventory = { 10, 0, 15, -2, 8 };
+        int total = 0;
+
+        // Requirement 1: Print all
+        foreach (int item in inventory) 
+        {
+            Console.WriteLine(item);
+        }
+
+        // // Requirement 3: Sum positive numbers
+        for (int i = 0; i < inventory.Length; i++) 
+        {
+            if (inventory[i] > 0)
+            {
+                total += inventory[i];
+            }
+        }
+        Console.WriteLine($"Total of Sum of positive numbers from array : {total}");
+
+        // // Requirement 4: The confirmation
+        string input;
+        do
+        {
+            Console.WriteLine("\nType 'confirm' to save changes:");
+            input = Console.ReadLine();
+        } while ((input?.ToLower() ?? "") != "confirm");
+        Console.WriteLine("Inventory processed successfully!");
+    }
+}
