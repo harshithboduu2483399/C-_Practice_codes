@@ -10,7 +10,7 @@ class Program {
             Console.WriteLine(item);
         }
 
-        // // Requirement 3: Sum positive numbers
+        // // Requirement 2: Sum positive numbers
         for (int i = 0; i < inventory.Length; i++) 
         {
             if (inventory[i] > 0)
@@ -20,7 +20,7 @@ class Program {
         }
         Console.WriteLine($"Total of Sum of positive numbers from array : {total}");
 
-        // // Requirement 4: The confirmation
+        // // Requirement 3: The confirmation
         string input;
         do
         {
